@@ -13,11 +13,11 @@ git init
 
 git remote add introcloud (http do git)
 
-get add . (adiciona todos)
+git add . (adicionar todos)
 
-get commit -m "mensagem aqui"  (efetuar o commit)
+git commit -m "mensagem aqui"  (efetuar o commit)
 
-get push  introcloud (Confirmar e commitar)
+git push  introcloud (Confirmar e commitar)
 
 
 
