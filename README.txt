@@ -1,0 +1,1 @@
+jar cMf bundle.zip src conf Procfile Buildfile pom.xml

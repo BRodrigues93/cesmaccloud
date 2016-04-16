@@ -1,0 +1,1 @@
+build: mvn assembly:asembly -DdescriptorId=jar-with-dependencies
