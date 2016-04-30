@@ -22,11 +22,7 @@ import lombok.Setter;
 @Setter
 public class User {
 
+    Integer id;
     String name;
     Integer idade;
-
-//    public User(String name, Integer idade) {
-//        this.name = name;
-//        this.idade = idade;
-//    }
 }

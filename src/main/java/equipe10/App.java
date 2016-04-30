@@ -22,7 +22,23 @@ public class App extends Jooby {
         });
 
         get("/todos/:id", req -> {
-            return "id";
+            Integer id = null;
+            String message = "";
+            int statusCode = 404;
+
+            try {
+                id = Integer.parseInt(req.param("id").value());
+            } catch (NumberFormatException e) {
+                return Results.with("O id deve ser um número").status(400).type("text/plain");
+            }
+            
+            if(id > 0){
+                
+            }else{
+                return Results.with("O número não pode ser zero!").status(400).type("text/plain");
+            }
+              
+            return Results.with(message).status(statusCode).type("text/plain");
         });
 
         get("/todos/searchbyname/:name", req -> {
@@ -63,6 +79,7 @@ public class App extends Jooby {
                     message = "Idade não pode ser vazio.";
                 } else {
                     statusCode = 200;
+                    user.setId(this.users.size()+1);
                     this.users.add(user);
                 }
 
