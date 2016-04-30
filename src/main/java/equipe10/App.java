@@ -27,48 +27,48 @@ public class App extends Jooby {
 
         get("/todos/searchbyname/:name", req -> {
             String name = req.param("name").value();
-            String message = "here";
 
+            String message = "";
             int statusCode = 404;
 
             if (users.size() > 0) {
-                if (!name.isEmpty()) {
-                    for (User user : users) {
-                        if (user.getName().contains(name)) {
-                            statusCode = 200;
-                            message = "Nome do usuário encontrado: " + user.getName()
-                                    + ", idade:" + user.getIdade();
-                        } else {
-                            message = "Nome não encontrado!";
-                        }
+                for (User user : users) {
+                    if (user.getName().contains(name)) {
+                        statusCode = 200;
+                        message = "Nome do usuário encontrado: " + user.getName()
+                                + ", idade:" + user.getIdade();
+                    } else {
+                        message = "Nome não encontrado!";
                     }
-                } else {
-                    statusCode = 400;
-                    message = "Parametro de busca, vazio!";
                 }
             } else {
-                statusCode = 204;
+                statusCode = 400;
                 message = "A lista esta vazia!";
             }
 
-            return Results.with(message, statusCode).type("text/plain");
+            return Results.with(message).status(statusCode).type("text/plain");
         });
 
-        post("/todos", (req, rsp) -> {
+        post("/todos", req -> {
             ObjectMapper mapper = new ObjectMapper();
             String jsonInString = req.body().value();
             User user = mapper.readValue(jsonInString, User.class);
 
+            String message = "Inserido com sucesso!";
+            int statusCode = 400;
+
                 if (user.getName().equals("")) {
-                    rsp.send("Nome não pode ser vazio");
+                    message = "Nome não pode ser vazio.";
                 } else if (user.getIdade() == 0) {
-                    rsp.send("Idade não pode ser vazio");
+                    message = "Idade não pode ser vazio.";
                 } else {
+                    statusCode = 200;
                     this.users.add(user);
                 }
 
-                rsp.send("Adicionado com sucesso");
+                return Results.with(message).status(statusCode).type("text/plain");
             }
+
         )
         .consumes(MediaType.json)
         .name("Insert an User");

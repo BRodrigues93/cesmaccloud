@@ -1,6 +1,5 @@
 package equipe10;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Ignore;
 import org.junit.Test;
 
