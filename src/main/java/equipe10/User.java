@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package equipe10;
 
 import lombok.Getter;
@@ -22,6 +21,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class User {
+
     String name;
     Integer idade;
+
+//    public User(String name, Integer idade) {
+//        this.name = name;
+//        this.idade = idade;
+//    }
 }
