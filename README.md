@@ -1,26 +1,28 @@
-# cesmaccloud
-projeto de integração Eng. Software
+<p align="center">
+	<img src="https://developer.github.com/assets/images/rocketship.png" alt="ROR Resources Cover" style="max-width:1%;">
+</p>
 
+<h1 align="center">Cesmac Cloud</h1>
 
-set JAVA_HOME=c:\Progra~1\Java\jdk1.8.0_65
+<p align="center">Projeto de integração Eng. Software</p>
 
-C:\Users\cesmac\Desktop\apache_Maven\bin\mvn archetype:generate -B -DgroupId=equipe10 -DartifactId=introcloud -Dversion=1.0-SNAPSHOT -DarchetypeArtifactId=jooby-archetype -DarchetypeGroupId=org.jooby -DarchetypeVersion=0.16.0
+## :mortar_board: Integrantes
 
+<a id="user-content-Índice" class="anchor" href="#Índice" aria-hidden="true"></a>
+<p align="center">
+	<a href="#">• Bruno Rodrigues</a> • 
+	<a href="#">Ibirajara Barrel</a> • 
+	<a href="#">Isaac Coimbra</a> •
+	<a href="#">khwesten Heiner</a> •
+	<a href="#">Wylianne Costa</a> •
+</p>
 
-----------------------------
-Entra no diretorio - Commitar arquivos
-git init
+## :computer: Divisões
+Developer | Method | + | Descrição
+:-- | :-- | :-- | :--
+[ Bruno Rodrigues  ] | Get/All List | Readme.md              | Feito a listagem de todos os dados cadastrados;
+[ Ibirajara Barrel ] | Get/Search id | - - - -               | Procura de dados pelo ID;
+[ Isaac Coimbra    ] | - - - - - - - | - - - -               |  s
+[ khwesten Heiner  ] | Get/Search Name | Post/Name and Idade | Rota de inserção e de recuperação por Nome;
+[ Wylianne Costa   ] | Get/Delete | - - - -                  | Delete de dados pelo ID;
 
-git remote add introcloud (http do git)
-
-git add . (adicionar todos)
-
-git commit -m "mensagem aqui"  (efetuar o commit)
-
-git push  introcloud (Confirmar e commitar)
-
-
-
---------------------------
-Quando existem arquivos no git que no local não tem
-git pull introcloud master
