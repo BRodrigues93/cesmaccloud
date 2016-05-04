@@ -40,7 +40,7 @@ public class App extends Jooby {
 	                            message = "Nome do usuário encontrado: " + user.getName()
 	                                    + ", idade:" + user.getIdade() + ", com codigo :" + user.getId();
 	                        } else {
-	                            message = "Codigo não encontrado!";
+	                            message = "Id não encontrado!";
 	                        }
 	                    }
 	            } else {
@@ -49,7 +49,7 @@ public class App extends Jooby {
 	            }
                 
             }else{
-                return Results.with("O número não pode ser zero!").status(400).type("text/plain");
+                return Results.with("O Id não pode ser zero!").status(400).type("text/plain");
             }
               
             return Results.with(message).status(statusCode).type("text/plain");
