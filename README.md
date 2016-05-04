@@ -41,7 +41,7 @@ mvn jooby: run | Inicia o servidor local;
 ## :octocat: Comandos Básicos (Upando projeto - GitHub)
 Comando | Funcionalidade
 :-- | :-- 
-git init | Inicia o servidor local;
+git init | Inicia o Git;
 git add . | Adiciona  todos os documentos locais ao GitHub;
 git commit -m "mensagem de commit" | Efetua o commit;
 git push nomedoSeuProjeto | Confirma o commit, em seguida solicita o usuario e senha;
