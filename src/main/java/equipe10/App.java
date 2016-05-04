@@ -141,5 +141,31 @@ public class App extends Jooby {
     public static void main(final String[] args) throws Exception {
         run(App::new, args);
     }
+    
+     put("/todos/updatename/:name", req -> {
+            String name = req.param("name").value();
+            String message = "";
+            int statusCode = 404;
+
+            if (users.size() > 0) {
+                for (User user : users) {
+                    if (user.getName().contains(name)) {
+                        statusCode = 200;
+                        message = "Nome : " + user.getName() ;
+                        if (users.getId().getName() == userUpdate.getName()){
+                        	users.put(user.getName(), user);
+                    } else {
+                        message = "Não encontrado!";
+                    }
+                }
+             }
+            } else {
+                statusCode = 400;
+                message = "A lista esta vazia!";
+            }
+
+            return Results.with(message).status(statusCode).type("text/plain");
+        });
+    
 
 }
