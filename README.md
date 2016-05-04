@@ -18,18 +18,20 @@
 </p>
 
 ## :computer: Divisões
-Developer | Method | + | Descrição
+Developer | Method | @Test | Descrição
 :-- | :-- | :-- | :--
-[ Bruno Rodrigues  ] | Get/All List | Readme.md              | Feito a listagem de todos os dados cadastrados;
+[ Bruno Rodrigues  ] | Get/All List | OK              | Feito a listagem de todos os dados cadastrados;
 [ Ibirajara Barrel ] | Get/Search id | - - - -               | Procura de dados pelo ID;
 [ Isaac Coimbra    ] | - - - - - - - | - - - -               |  s
-[ khwesten Heiner  ] | Get/Search Name | Post/Name and Idade | Rota de inserção e de recuperação por Nome;
-[ Wylianne Costa   ] | Get/Delete | Test Delete              | Delete de dados pelo ID;
+[ khwesten Heiner  ] | Get/Search Name + Post/Name and Idade| OK | Rota de inserção e de recuperação por Nome;
+[ Wylianne Costa   ] | Get/Delete | OK              | Delete de dados pelo ID;
 
 
 ## :beginner: Requisitos 
 * Install <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">JDK 8+</a>
 * Install <a href="http://maven.apache.org/" target="_blank">Maven 3+</a>
+* Use <a href="https://daringfireball.net/projects/markdown/" target="_blank">Markdown 1.0.1</a>
+
 
 ## :fallen_leaf: Comandos Básicos (Criação do projeto - MVN)
 Comando | Funcionalidade
