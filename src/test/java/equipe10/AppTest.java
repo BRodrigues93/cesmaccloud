@@ -28,4 +28,16 @@ public class AppTest extends BaseTest {
         .expect(200);
   }
 
+
+  @Test
+  public void delete() throws Exception {
+    String json = "{\n" +
+        "    \"id\": \"1\"\n" +
+    "}";
+
+    server.delete("/todos/delete")
+        .body(json, "application/json")
+        .expect(200);
+  }
+
 }
