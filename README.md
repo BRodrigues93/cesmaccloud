@@ -10,11 +10,11 @@
 
 <a id="user-content-Índice" class="anchor" href="#Índice" aria-hidden="true"></a>
 <p align="center">
-	<a href="https://github.com/BRodrigues93" target="blank">• Bruno Rodrigues</a> • 
+	<a href="https://github.com/BRodrigues93" target="_blank">• Bruno Rodrigues</a> • 
 	<a href="#">Ibirajara Barrel</a> • 
 	<a href="#">Isaac Coimbra</a> •
-	<a href="https://github.com/Khwesten" target="blank">khwesten Heiner</a> •
-	<a href="https://github.com/Wylianne" target="blank">Wylianne Costa</a> •
+	<a href="https://github.com/Khwesten" target="_blank">khwesten Heiner</a> •
+	<a href="https://github.com/Wylianne" target="_blank">Wylianne Costa</a> •
 </p>
 
 ## :computer: Divisões
@@ -28,8 +28,8 @@ Developer | Method | + | Descrição
 
 
 ## :beginner: Requisitos 
-* Install <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="blank">JDK 8+</a>
-* Install <a href="http://maven.apache.org/" target="blank">Maven 3+</a>
+* Install <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">JDK 8+</a>
+* Install <a href="http://maven.apache.org/" target="_blank">Maven 3+</a>
 
 ## :fallen_leaf: Comandos Básicos (Criação do projeto - MVN)
 Comando | Funcionalidade
