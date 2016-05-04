@@ -1,4 +1,4 @@
-package equipe10;
+﻿package equipe10;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.ArrayList;
@@ -90,9 +90,36 @@ public class App extends Jooby {
         .consumes(MediaType.json)
         .name("Insert an User");
 
-        delete("/todos/:id", req -> {
-            return "todoId";
-        });
+        delete("/todos/delete/:id", req -> {
+            int id = req.param("id").value();
+
+            String message = "";
+            int statusCode = 408;
+
+
+            if (id.equals("")) {
+        		message = "O ID não pode ser vazio.";
+		    } else
+		    	if (users.size() > 0) {
+		            for (User user : users) {
+		                if (user.getId().equals(id)) { 
+		                    statusCode = 200;
+
+		                    user.remove(this.user);
+
+		                    message = "Usuario foi deletado com sucesso!";
+
+		                } else {
+		                    message = "Usuário não existe!";
+		                }
+		            }
+		        } else {
+		            statusCode = 400;
+		            message = "Nenhum usuário cadastrado!";
+		        }
+
+        	return Results.with(message).status(statusCode).type("text/plain");
+		});
     }
 
     public static void main(final String[] args) throws Exception {
