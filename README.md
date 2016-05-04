@@ -10,11 +10,11 @@
 
 <a id="user-content-Índice" class="anchor" href="#Índice" aria-hidden="true"></a>
 <p align="center">
-	<a href="https://github.com/BRodrigues93">• Bruno Rodrigues</a> • 
+	<a href="https://github.com/BRodrigues93" target="blank">• Bruno Rodrigues</a> • 
 	<a href="#">Ibirajara Barrel</a> • 
 	<a href="#">Isaac Coimbra</a> •
-	<a href="https://github.com/Khwesten">khwesten Heiner</a> •
-	<a href="https://github.com/Wylianne">Wylianne Costa</a> •
+	<a href="https://github.com/Khwesten" target="blank">khwesten Heiner</a> •
+	<a href="https://github.com/Wylianne" target="blank">Wylianne Costa</a> •
 </p>
 
 ## :computer: Divisões
