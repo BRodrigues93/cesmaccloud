@@ -33,6 +33,20 @@ public class App extends Jooby {
             }
             
             if(id > 0){
+	            if (users.size() > 0) {
+	                    for (User user : users) {
+	                        if (user.getId()==id){
+	                            statusCode = 200;
+	                            message = "Nome do usuário encontrado: " + user.getName()
+	                                    + ", idade:" + user.getIdade() + ", com codigo :" + user.getId();
+	                        } else {
+	                            message = "Codigo não encontrado!";
+	                        }
+	                    }
+	            } else {
+	                statusCode = 204;
+	                message = "A lista esta vazia!";
+	            }
                 
             }else{
                 return Results.with("O número não pode ser zero!").status(400).type("text/plain");
@@ -40,6 +54,8 @@ public class App extends Jooby {
               
             return Results.with(message).status(statusCode).type("text/plain");
         });
+
+
 
         get("/todos/searchbyname/:name", req -> {
             String name = req.param("name").value();
