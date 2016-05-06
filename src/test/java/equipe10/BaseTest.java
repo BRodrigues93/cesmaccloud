@@ -4,7 +4,6 @@ import org.jooby.test.AppRule;
 import org.jooby.test.Client;
 import org.junit.ClassRule;
 import org.junit.Rule;
-
 /**
  * @author jooby generator
  */

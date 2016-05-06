@@ -1,4 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: equipe10.AppTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 3.336 sec - in equipe10.AppTest
+Tests run: 4, Failures: 0, Errors: 2, Skipped: 1, Time elapsed: 1.996 sec <<< FAILURE! - in equipe10.AppTest
+delete(equipe10.AppTest)  Time elapsed: 0.254 sec  <<< ERROR!
+java.lang.IllegalStateException: DELETE request cannot enclose an entity
+	at org.apache.http.client.fluent.Request.body(Request.java:299)
+	at org.apache.http.client.fluent.Request.bodyString(Request.java:331)
+	at org.jooby.test.Client$Request.body(Client.java:114)
+	at equipe10.AppTest.delete(AppTest.java:45)
+
+get(equipe10.AppTest)  Time elapsed: 0.008 sec  <<< ERROR!
+java.lang.IllegalStateException: GET request cannot enclose an entity
+	at org.apache.http.client.fluent.Request.body(Request.java:299)
+	at org.apache.http.client.fluent.Request.bodyString(Request.java:331)
+	at org.jooby.test.Client$Request.body(Client.java:114)
+	at equipe10.AppTest.get(AppTest.java:34)
+
