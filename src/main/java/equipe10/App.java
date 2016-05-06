@@ -18,44 +18,47 @@ public class App extends Jooby {
         use(new Jackson());
 
         get("/todos", req -> {
-            return "[{name: 'asd'}, {name: 'qwe'}]";
+            return users;
         });
 
-        get("/todos/:id", req -> {
+        /**
+         * @author: Ibirajara Barrel Junior
+         * Método para retornar o usuário pelo id.
+         * Percorre a lista para validar o id do usuário. 
+         * Consequentemente, inserção do usuário o id deve ser o maior da lista + 1
+         */
+        
+        get("/todos/:id", (req) -> {
             Integer id = null;
+            usuario = null;
             String message = "";
+            String result = "";
             int statusCode = 404;
-
             try {
                 id = Integer.parseInt(req.param("id").value());
+                for (User user : users) {
+                    if (user.getId() == id) {
+                        statusCode = 200;
+                        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+                        this.usuario = user;
+                        result = ow.writeValueAsString(this.usuario);
+                    } else {
+                        message = "Nome não encontrado!";
+                    }
+                }
             } catch (NumberFormatException e) {
                 return Results.with("O id deve ser um número").status(400).type("text/plain");
             }
             
-            if(id > 0){
-	            if (users.size() > 0) {
-	                    for (User user : users) {
-	                        if (user.getId()==id){
-	                            statusCode = 200;
-	                            message = "Nome do usuário encontrado: " + user.getName()
-	                                    + ", idade:" + user.getIdade() + ", com codigo :" + user.getId();
-	                        } else {
-	                            message = "Id não encontrado!";
-	                        }
-	                    }
-	            } else {
-	                statusCode = 204;
-	                message = "A lista esta vazia!";
-	            }
-                
+            if(this.usuario != null){
+               return Results.with(result).status(statusCode).type("text/plain");
+
             }else{
-                return Results.with("O Id não pode ser zero!").status(400).type("text/plain");
-            }
-              
-            return Results.with(message).status(statusCode).type("text/plain");
+                    return Results.with("Usuário não encontrado!").status(400).type("text/plain");
+                    
+                    
+                }
         });
-
-
 
         get("/todos/searchbyname/:name", req -> {
             String name = req.param("name").value();
