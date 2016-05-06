@@ -29,6 +29,7 @@ public class App extends Jooby {
         * Percorre a lista para validar o id retornando o usuario ou uma mensagem caso
         * nao encontre.
         * Consequentemente, inserção do usuário o id deve ser o maior da lista + 1
+        * V. 2.0
         */
        get("/todos/:id", (req) -> {
             Integer id = null;
@@ -61,8 +62,6 @@ public class App extends Jooby {
                     
                 }
         });
-
-
 
         get("/todos/searchbyname/:name", req -> {
             String name = req.param("name").value();
@@ -115,6 +114,7 @@ public class App extends Jooby {
             Integer id = Integer.parseInt(req.param("id").value());
             String message = "";
             int statusCode = 408;
+            boolean sit = false;
             if (id.equals("")) {
         		message = "O ID não pode ser vazio.";
 		    } else
@@ -122,14 +122,12 @@ public class App extends Jooby {
 		            for (User user : users) {
 		                if (user.getId() == id) { 
 		                    statusCode = 200;
-
 		                    users.remove(user);
-
 		                    message = "Usuario foi deletado com sucesso!";
-
-		                } else {
-		                    message = "Usuário não existe!";
 		                }
+		            }
+		            if (sit){
+		            	message = "Usuário não existe!";
 		            }
 		        } else {
 		            statusCode = 400;
@@ -157,14 +155,41 @@ public class App extends Jooby {
                    }
 
                    return Results.with(message).status(statusCode).type("text/plain");
-               });        
+               });      
+    	 /**
+         * @author: Bruno Rodrigues Barbosa
+         * Método para alterar o nome do usuário pelo nome.
+         * Percorre a lista para pesquisar o nome do usuário; 
+         * Após encontrar, poderá fazer a alteração digitando um "novo nome";
+         * para atualizar verifica o id do mesmo;
+         * atualiza o nome e o insere no id do nome selecionado;
+         */
+     put("/todos/updatename/:name", req -> {
+                   User userUpdate = (User) req;
+                   String message = "Usuario nao encontrado";
+                   int statusCode = 404;
+                   if (users.size() > 0) {
+                       for (User user : users) {
+                           if (user.getId() == userUpdate.getId() ) {
+                               statusCode = 200;
+                               message = "Usuario " + user.getName() + " atualizado!" ;
+                               users.set(users.indexOf(user), userUpdate);
+                       }
+                    }
+                   } else {
+                       statusCode = 400;
+                       message = "A lista esta vazia!";
+                   }
+
+                   return Results.with(message).status(statusCode).type("text/plain");
+               });         
         
     }
-
-    
     
     public static void main(final String[] args) throws Exception {
         run(App::new, args);
-    }    
+    }
+
+    
 
 }
