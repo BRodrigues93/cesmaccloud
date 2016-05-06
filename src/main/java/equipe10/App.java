@@ -146,7 +146,14 @@ public class App extends Jooby {
     public static void main(final String[] args) throws Exception {
         run(App::new, args);
     }
-    
+    	 /**
+         * @author: Bruno Rodrigues Barbosa
+         * Método para alterar o nome do usuário pelo nome.
+         * Percorre a lista para pesquisar o nome do usuário; 
+         * Após encontrar, poderá fazer a alteração digitando um "novo nome";
+         * para atualizar verifica o id do mesmo;
+         * atualiza o nome e o insere no id do nome selecionado;
+         */
      put("/todos/updatename/:name", req -> {
             String name = req.param("name").value();
             String message = "";
