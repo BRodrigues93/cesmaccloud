@@ -111,7 +111,7 @@ public class App extends Jooby {
 
             String message = "";
             int statusCode = 408;
-
+	    boolean sit = true;
 
             if (id.equals("")) {
         		message = "O ID não pode ser vazio.";
@@ -119,15 +119,17 @@ public class App extends Jooby {
 		    	if (users.size() > 0) {
 		            for (User user : users) {
 		                if (user.getId().equals(id)) { 
+		                    sit = false;
 		                    statusCode = 200;
 
 		                    user.remove(this.user);
 
 		                    message = "Usuario foi deletado com sucesso!";
-
-		                } else {
-		                    message = "Usuário não existe!";
+				    
 		                }
+		            }
+		            if (sit){
+		            	message = "Usuário não existe!";
 		            }
 		        } else {
 		            statusCode = 400;
