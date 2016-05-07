@@ -37,6 +37,8 @@ public class App extends Jooby {
             String message = "";
             String result = "";
             int statusCode = 404;
+            System.out.println("Agora no programa..................");
+
             try {
                 id = Integer.parseInt(req.param("id").value());
                 for (User user : users) {
@@ -190,6 +192,15 @@ public class App extends Jooby {
         run(App::new, args);
     }
 
-    
+    public void addUsertoList(){
+        System.out.println("no app para popular...");
+        User u = new User();
+        u.setId(1);
+        u.setName("Nome de teste");
+        u.setIdade(29);
+        this.users.add(u);
+        System.out.println("populou...");
+        
+    }
 
 }
