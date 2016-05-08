@@ -111,33 +111,44 @@ public class App extends Jooby {
         )
         .consumes(MediaType.json)
         .name("Insert an User");
-
+        
+        
+        
+        /**
+        * @author: Wylianne da Silva Costa
+        * Método para deletar o usuário pelo id.
+        * O usuario informa o id do usuario a ser buscado.
+        * Percorre a lista para validar o id retornando o usuario ou uma mensagem caso nao encontre.
+        * V. 2.0
+        */
         delete("/todos/delete/:id", (req) -> {
-            Integer id = Integer.parseInt(req.param("id").value());
-            String message = "";
-            int statusCode = 408;
-            boolean sit = false;
-            if (id.equals("")) {
-        		message = "O ID não pode ser vazio.";
-		    } else
-		    	if (users.size() > 0) {
-		            for (User user : users) {
-		                if (user.getId() == id) { 
-		                    statusCode = 200;
-		                    users.remove(user);
-		                    message = "Usuario foi deletado com sucesso!";
-		                }
-		            }
-		            if (sit){
-		            	message = "Usuário não existe!";
-		            }
+		Integer id = Integer.parseInt(req.param("id").value());
+		String message = "";
+		int statusCode = 408;
+		boolean sit = true;
+		if (id.equals("")) {
+			message = "O ID não pode ser vazio.";
+		}else{
+			if (users.size() > 0) {
+				for (User user : users) {
+					if (user.getId() == id) { 
+					    sit: false;
+					    statusCode = 200;
+					    users.remove(user);
+					    message = "Usuario foi deletado com sucesso!";
+					}
+				}
+				if (sit){
+					statusCode = 200;
+					message = "Usuário não existe!";
+				}
 		        } else {
-		            statusCode = 400;
-		            message = "Nenhum usuário cadastrado!";
+				statusCode = 400;
+				message = "Nenhum usuário cadastrado!";
 		        }
-
+		}
         	return Results.with(message).status(statusCode).type("text/plain");
-		});
+	});
         
         put("/todos/updatename/:id", (req) -> {
                    User userUpdate = (User) req;
