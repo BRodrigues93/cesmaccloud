@@ -22,8 +22,8 @@ Developer | Method | @Test | Descrição
 :-- | :-- | :-- | :--
 [ Bruno Rodrigues  ] | Get/All List | OK              | Feito a listagem de todos os dados cadastrados;
 [ Ibirajara Barrel ] | Get/Search id | OK               | Procura de dados pelo ID;
-[ Isaac Coimbra    ] | - - - - - - - | - - - -               |  s
-[ khwesten Heiner  ] | Get/Search Name + Post/Name and Idade| OK | Rota de inserção e de recuperação por Nome;
+[ Isaac Coimbra    ] | Post/Name and Idade | OK              |  Procura por nome;
+[ khwesten Heiner  ] | Get/Search Name | OK | Rota de inserção e de recuperação por Nome;
 [ Wylianne Costa   ] | Get/Delete | OK              | Delete de dados pelo ID;
 
 
