@@ -64,7 +64,13 @@ public class App extends Jooby {
                     
                 }
         });
-
+	/**
+        * @author: Khwesten Heiner 
+        * Método para procurar nome do usuario e mostrar em tela seu nome e idade.
+        * O usuario informa o nome a ser buscado.
+        * Percorre a lista para validar o nome retornando o Nome e idade ou uma mensagem caso
+        * nao encontre.
+        */
         get("/todos/searchbyname/:name", req -> {
             String name = req.param("name").value();
             String message = "";
@@ -87,30 +93,6 @@ public class App extends Jooby {
             return Results.with(message).status(statusCode).type("text/plain");
         });
 
-        post("/todos", req -> {
-            ObjectMapper mapper = new ObjectMapper();
-            String jsonInString = req.body().value();
-            User user = mapper.readValue(jsonInString, User.class);
-
-            String message = "Inserido com sucesso!";
-            int statusCode = 400;
-
-                if (user.getName().equals("")) {
-                    message = "Nome não pode ser vazio.";
-                } else if (user.getIdade() == 0) {
-                    message = "Idade não pode ser vazio.";
-                } else {
-                    statusCode = 200;
-                    user.setId(this.users.size()+1);
-                    this.users.add(user);
-                }
-
-                return Results.with(message).status(statusCode).type("text/plain");
-            }
-
-        )
-        .consumes(MediaType.json)
-        .name("Insert an User");
         
         
         
@@ -150,25 +132,6 @@ public class App extends Jooby {
         	return Results.with(message).status(statusCode).type("text/plain");
 	});
         
-        put("/todos/updatename/:id", (req) -> {
-                   User userUpdate = (User) req;
-                   String message = "Usuario nao encontrado";
-                   int statusCode = 404;
-                   if (users.size() > 0) {
-                       for (User user : users) {
-                           if (user.getId() == userUpdate.getId() ) {
-                               statusCode = 200;
-                               message = "Usuario " + user.getName() + " atualizado!" ;
-                               users.set(users.indexOf(user), userUpdate);
-                       }
-                    }
-                   } else {
-                       statusCode = 400;
-                       message = "A lista esta vazia!";
-                   }
-
-                   return Results.with(message).status(statusCode).type("text/plain");
-               });      
     	 /**
          * @author: Bruno Rodrigues Barbosa
          * Método para alterar o nome do usuário pelo nome.
@@ -202,7 +165,10 @@ public class App extends Jooby {
     public static void main(final String[] args) throws Exception {
         run(App::new, args);
     }
-
+	/**
+        * @author: Khwesten Heiner 
+        * Adicionar nome e idade.
+        */
     public void addUsertoList(){
         System.out.println("no app para popular...");
         User u = new User();
