@@ -93,7 +93,34 @@ public class App extends Jooby {
             return Results.with(message).status(statusCode).type("text/plain");
         });
 
-        
+        /**
+        * @author: Isaac Coimbra 
+        * Método para inserir nome e idade do usuário.
+        */
+        post("/todos", req -> {
+            ObjectMapper mapper = new ObjectMapper();
+            String jsonInString = req.body().value();
+            User user = mapper.readValue(jsonInString, User.class);
+
+            String message = "Inserido com sucesso!";
+            int statusCode = 400;
+
+                if (user.getName().equals("")) {
+                    message = "Nome não pode ser vazio.";
+                } else if (user.getIdade() == 0) {
+                    message = "Idade não pode ser vazio.";
+                } else {
+                    statusCode = 200;
+                    user.setId(this.users.size()+1);
+                    this.users.add(user);
+                }
+
+                return Results.with(message).status(statusCode).type("text/plain");
+            }
+
+        )
+        .consumes(MediaType.json)
+        .name("Insert an User");
         
         
         /**
@@ -167,7 +194,7 @@ public class App extends Jooby {
     }
 	/**
         * @author: Khwesten Heiner 
-        * Adicionar nome e idade.
+        * Adicionar nome e idade de teste.
         */
     public void addUsertoList(){
         System.out.println("no app para popular...");
